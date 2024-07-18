@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our 21st Month</title>
+    <link rel="icon" href="images/3.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 100vh;
+            background-color: black; 
+            font-family: 'Merriweather', serif;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .flower-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flower {
+            width: 80px;
+            height: 20000000px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            animation: growFlower 10s ease-in-out forwards, swayFlower 4s ease-in-out infinite alternate; /* Longer growing animation */
+        }
+
+        .stem {
+            width: 15px; 
+            height: 0;
+            background-color: #228B22; 
+            animation: growStem 8s ease-in-out forwards;
+        }
+
+        .petals {
+            width: 80px; 
+            height: 80px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            animation: growPetals 8s ease-in-out forwards;
+        }
+
+        .petal {
+            width: 80px; 
+            height: 80px; 
+            background-color: red;
+            border-radius: 50% 50% 0 0;
+            position: absolute;
+            box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.6); 
+        }
+
+        .petal:nth-child(1) {
+            transform: rotate(-45deg) translateX(-40px); 
+        }
+
+        .petal:nth-child(2) {
+            transform: rotate(45deg) translateX(40px);
+        }
+
+        @keyframes growFlower {
+            0% {
+                height: 0;
+                opacity: 0;
+            }
+            100% {
+                height: 300px; 
+                opacity: 1;
+            }
+        }
+
+        @keyframes growStem {
+            0% {
+                height: 0;
+            }
+            100% {
+                height: 300px; 
+            }
+        }
+
+        @keyframes growPetals {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes swayFlower {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-20px); 
+            }
+        }
+
+        .grass-container {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 5px;
+            z-index: 0;
+        }
+
+        .grass {
+            width: 2px;
+            height: 0; 
+            background-color: green;
+            border-radius: 2px;
+            position: absolute;
+            bottom: 0;
+            animation: growGrass 4s ease-in-out forwards, swayGrass 4s ease-in-out infinite alternate;
+            transform-origin: bottom center; 
+            opacity: 0.8;
+        }
+
+        @keyframes growGrass {
+            0% {
+                height: 0;
+                opacity: 0;
+            }
+            100% {
+                height: 120px;
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes swayGrass {
+            0% {
+                transform: scaleY(1) rotate(-3deg);
+            }
+            100% {
+                transform: scaleY(1.05) rotate(3deg);
+            }
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            opacity: 0.8; 
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0.3;
+            }
+        }
+
+        .star:nth-child(1) {
+            top: 10%;
+            left: 20%;
+        }
+
+        .star:nth-child(2) {
+            top: 15%;
+            left: 50%;
+        }
+
+        .star:nth-child(3) {
+            top: 5%;
+            left: 80%;
+        }
+
+        .star:nth-child(4) {
+            top: 25%;
+            left: 30%;
+        }
+
+        .star:nth-child(5) {
+            top: 30%;
+            left: 70%;
+        }
+
+        .star:nth-child(6) {
+            top: 35%;
+            left: 10%;
+        }
+
+        .star:nth-child(7) {
+            top: 40%;
+            left: 60%;
+        }
+
+        .star:nth-child(8) {
+            top: 45%;
+            left: 40%;
+        }
+
+        .star:nth-child(9) {
+            top: 50%;
+            left: 90%;
+        }
+
+        .star:nth-child(10) {
+            top: 55%;
+            left: 20%;
+        }
+
+        .star:nth-child(11) {
+            top: 60%;
+            left: 80%;
+        }
+
+        .star:nth-child(12) {
+            top: 65%;
+            left: 30%;
+        }
+
+        .star:nth-child(13) {
+            top: 70%;
+            left: 70%;
+        }
+
+        .star:nth-child(14) {
+            top: 75%;
+            left: 10%;
+        }
+
+        .star:nth-child(15) {
+            top: 80%;
+            left: 60%;
+        }
+
+        .star:nth-child(16) {
+            top: 85%;
+            left: 40%;
+        }
+
+        .star:nth-child(17) {
+            top: 90%;
+            left: 90%;
+        }
+
+        .star:nth-child(18) {
+            top: 95%;
+            left: 20%;
+        }
+
+        .star:nth-child(19) {
+            top: 5%;
+            left: 10%;
+        }
+
+        .star:nth-child(20) {
+            top: 10%;
+            left: 60%;
+        }
+
+        .star:nth-child(21) {
+            top: 15%;
+            left: 90%;
+        }
+
+        .star:nth-child(22) {
+            top: 20%;
+            left: 30%;
+        }
+
+        .star:nth-child(23) {
+            top: 25%;
+            left: 70%;
+        }
+
+        .star:nth-child(24) {
+            top: 30%;
+            left: 10%;
+        }
+
+        .star:nth-child(25) {
+            top: 35%;
+            left: 50%;
+        }
+
+        .star:nth-child(26) {
+            top: 40%;
+            left: 90%;
+        }
+
+        .star:nth-child(27) {
+            top: 45%;
+            left: 20%;
+        }
+
+        .star:nth-child(28) {
+            top: 50%;
+            left: 60%;
+        }
+
+        .star:nth-child(29) {
+            top: 55%;
+            left: 80%;
+        }
+
+        .star:nth-child(30) {
+            top: 60%;
+            left: 40%;
+        }
+
+        .star:nth-child(31) {
+            top: 65%;
+            left: 70%;
+        }
+
+        .star:nth-child(32) {
+            top: 70%;
+            left: 50%;
+        }
+
+        .star:nth-child(33) {
+            top: 75%;
+            left: 10%;
+        }
+
+        .star:nth-child(34) {
+            top: 80%;
+            left: 90%;
+        }
+        .star:nth-child(35) {
+        top: 85%;
+        left: 30%;
+    }
+
+    .star:nth-child(36) {
+        top: 90%;
+        left: 70%;
+    }
+
+    .star:nth-child(37) {
+        top: 95%;
+        left: 40%;
+    }
+
+    .star:nth-child(38) {
+        top: 5%;
+        left: 80%;
+    }
+
+    .star:nth-child(39) {
+        top: 10%;
+        left: 30%;
+    }
+
+    .star:nth-child(40) {
+        top: 15%;
+        left: 60%;
+    }
+
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: gold;
+        border-radius: 50%;
+        opacity: 0;
+        animation: confetti-fall 2s ease-in-out infinite;
+    }
+
+    @keyframes confetti-fall {
+        0% {
+            transform: translateY(-100px);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh);
+            opacity: 0;
+        }
+    }
+
+    .music {
+        display: none;
+    }
+
+    .moon {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); 
+    z-index: 1; 
+}
+
+.love-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    opacity: 0;
+    animation: fade-in 4s forwards, glow 2s infinite alternate;
+    z-index: 2;
+}
+
+.love-message .glow {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.4), 0 0 40px rgba(255, 0, 0, 0.2);
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.4), 0 0 40px rgba(255, 0, 0, 0.2);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.6), 0 0 60px rgba(255, 0, 0, 0.4), 0 0 80px rgba(255, 0, 0, 0.2);
+    }
+}
+
+.love-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    opacity: 0;
+    animation: fade-in 4s forwards, glow 2s infinite alternate;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.love-message .glow {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.4), 0 0 40px rgba(255, 0, 0, 0.2);
+}
+
+.love-message:hover {
+    color: darkpink;
+}
+
+.love-message:hover .glow {
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.8), 0 0 20px rgba(255, 20, 147, 0.6), 0 0 30px rgba(255, 20, 147, 0.4), 0 0 40px rgba(255, 20, 147, 0.2);
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.4), 0 0 40px rgba(255, 0, 0, 0.2);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.6), 0 0 60px rgba(255, 0, 0, 0.4), 0 0 80px rgba(255, 0, 0, 0.2);
+    }
+}
+</style>
+</head>
+<body>
+    <div class="flower-container">
+        <div class="flower">
+            <div class="petals">
+                <div class="petal"></div>
+                <div class="petal"></div>
+            </div>
+            <div class="stem"></div>
+        </div>
+        <div class="flower">
+            <div class="petals">
+                <div class="petal"></div>
+                <div class="petal"></div>
+            </div>
+            <div class="stem"></div>
+        </div>
+        <div class="flower">
+            <div class="petals">
+                <div class="petal"></div>
+                <div class="petal"></div>
+            </div>
+            <div class="stem"></div>
+        </div>
+    </div>
+    <div class="grass-container">
+        <div class="grass" style="left: 10%;"></div>
+        <div class="grass" style="left: 15%;"></div>
+        <div class="grass" style="left: 20%;"></div>
+        <div class="grass" style="left: 25%;"></div>
+        <div class="grass" style="left: 30%;"></div>
+        <div class="grass" style="left: 35%;"></div>
+        <div class="grass" style="left: 40%;"></div>
+        <div class="grass" style="left: 45%;"></div>
+        <div class="grass" style="left: 50%;"></div>
+        <div class="grass" style="left: 55%;"></div>
+        <div class="grass" style="left: 60%;"></div>
+        <div class="grass" style="left: 65%;"></div>
+        <div class="grass" style="left: 70%;"></div>
+        <div class="grass" style="left: 75%;"></div>
+        <div class="grass" style="left: 80%;"></div>
+        <div class="grass" style="left: 85%;"></div>
+        <div class="grass" style="left: 90%;"></div>
+    </div>
+    <div class="stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+    <div class="moon"></div>
+    <div class="love-message">
+        <span class="glow">I LOVE YOU SO MUCH!<3</span>
+    </div>
+    
+    <audio class="music" autoplay loop>
+        <source src="images/Daniel Caesar - Always (Official Audio).mp3" type="audio/mp3">
+    </audio>    
+    
+    <script>
+        const music = document.getElementById('backgroundMusic');
+        music.style.display = 'block';
+
+        
+        function playMusic() {
+            music.play();
+        }
+
+        
+        function createConfetti(flower) {
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 20 - 10}px`;
+                confetti.style.top = `${Math.random() * -20}px`;
+                confetti.style.animationDelay = `${Math.random() * 2}s`;
+                flower.querySelector('.petals').appendChild(confetti);
+            }
+        }
+
+        
+        document.querySelectorAll('.flower').forEach(flower => {
+            createConfetti(flower);
+        });
+        document.querySelector('.music').style.display = 'block';
+    
+        
+        function createConfetti(flower) {
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 20 - 10}px`;
+                confetti.style.top = `${Math.random() * -20}px`;
+                confetti.style.animationDelay = `${Math.random() * 2}s`;
+                flower.querySelector('.petals').appendChild(confetti);
+            }
+        }
+    
+        document.querySelectorAll('.flower').forEach(flower => {
+            createConfetti(flower);
+        });
+    </script>
+    </body>
+    </html>
+    ```
+    

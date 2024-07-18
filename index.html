@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our 21st Month</title>
+    <link rel="icon" href="images/3.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+            font-family: 'Merriweather', serif;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .envelope {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background-image: url('images/envelope.svg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+
+        .letter {
+            display: none;
+            padding: 30px;
+            text-align: justify;
+            width: calc(100% - 60px); 
+            height: calc(100% - 60px); 
+            overflow-y: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            transform: scaleY(0); 
+            transform-origin: top; 
+            background-color: rgba(255, 255, 255, 0.9); 
+        }
+
+        .letter.open {
+            display: block;
+            animation: unfold 0.6s ease-in-out forwards; 
+        }
+        .letter {
+ 
+    color: #333; 
+}
+
+        @keyframes unfold {
+            0% {
+                transform: scaleY(0);
+            }
+            100% {
+                transform: scaleY(1);
+            }
+        }
+
+        .open-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+        }
+
+        .open-button:hover {
+            background-color: #ff4e3d;
+        }
+
+        .images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .images .placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            background-color: #eee;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 50px;
+            color: #ff6f61;
+            margin-left: 18px;
+            margin-right: 18px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+        }
+
+        p {
+            font-family: 'Merriweather', serif;
+            font-size: 22px;
+            color: #333; 
+            margin-left: 18px;
+            margin-right: 18px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1; 
+            opacity: 0.65;
+        }
+
+        .side-decor-left, .side-decor-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        .side-decor-left {
+            left: 0;
+            background-image: url('images/left-decor.png');
+        }
+
+        .side-decor-right {
+            right: 0;
+            background-image: url('images/right-decor.png');
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        .rect-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #d5a0c781;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .rect-button:hover {
+            background-color: #b3638cf7;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="side-decor-left"></div>
+    <div class="side-decor-right"></div>
+
+    <div class="envelope">
+        <button class="open-button">Open</button>
+    </div>
+    <div class="letter">
+        <div class="video-container">
+            <video class="video-bg" autoplay muted loop>
+                <source src="images/bgvidd.mp4" type="video/mp4"> 
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <h1>Happy 21 Months, My Love!</h1>
+        <p>Dear Babi Jaila,</p>
+        <p>
+            I’m not good at writing letters, pero I just want to appreciate how understanding, loving, and caring you are. For the past 21 months, you’ve shaped my heart in a way that’s never been shaped by anyone else. When I say “ikaw lang,” I mean it with all my heart and soul. ❤️You lighten all the problems I feel and make me feel like they never existed. I’ve told you this before, but you really are the light in my cloudy, hazy life. I’d always choose you as my lover, no matter the place, age, or status. As Achilles once said, “I would love you in all of this, until the very last star in the sky burnt out into oblivion.” Pero ikaw, my love, are the star that will never burn out, shining brightly in my life forever.🥹<br>
+            
+            <br>I’d love you always and forever. I’d court you even after you said “yes” to me because courtship is all about how I love, respect, and understand you. I’d be there for you through thick and thin, highs and lows, and every twist and turn life throws our way. I can list more here pero I’ll let my actions show the rest. 
+            
+            
+            <br><br>So ayun baby, happy 21 months of happiness and love together!!!🥹❤️ Here’s to more months, years, and decades of love ahead:>
+            </p>
+        <p>Forever yours,<br>Ayannie:></p>
+        <div class="button-container">
+            <button class="rect-button" onclick="window.location.href='flower_site.html'">Press me!</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.open-button').addEventListener('click', function() {
+            document.querySelector('.letter').classList.add('open');
+            setTimeout(function() {
+                document.querySelector('.envelope').style.display = 'none';
+            }, 600);
+        });
+    </script>
+</body>
+</html>
